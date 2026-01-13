@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Java 8 (features+Thread)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task0(Exception)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task1(Basic Product Project)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task2(Landed Cost)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task3(Gst Types)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task4(Store Inventory+StockShortage)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task5(Predicate+Grouping+Consumer)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task5.1(Last 30 days Supplierwise)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Task5.1.1" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
