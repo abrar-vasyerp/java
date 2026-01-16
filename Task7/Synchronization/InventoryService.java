@@ -1,10 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class InventoryService{
     Inventory inventory;
     int inventoryId;
-    private final Map<Integer,Inventory> inventoryMap=new HashMap<>();
+    private final Map<Integer,Inventory> inventoryMap=new ConcurrentHashMap<>();
 
 //    public InventoryService(Inventory inventory) {
 //        this.inventory = inventory;
