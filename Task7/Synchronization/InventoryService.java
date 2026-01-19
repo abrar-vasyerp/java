@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -6,7 +8,7 @@ public class InventoryService{
     Inventory inventory;
     int inventoryId;
     private final Map<Integer,Inventory> inventoryMap=new ConcurrentHashMap<>();
-
+    List<Inventory> inventoryList = new ArrayList<>();
 //    public InventoryService(Inventory inventory) {
 //        this.inventory = inventory;
 //    }
@@ -15,9 +17,14 @@ public class InventoryService{
 //    }
 
     public void addItem(Inventory inventory){
+         inventoryList.add(inventory);
         inventoryId=inventory.getInventoryId();
         inventoryMap.put(inventoryId,inventory);
-        System.out.println("Item added Successfully");
+        for (Inventory inventory1 : inventoryList){
+            System.out.println("Item added Successfully" + inventory1.getInventoryId());
+            System.out.println("Item added Successfully" + inventory1.getProductName());
+            System.out.println("Item added Successfully" + inventory1.getQuantity());
+        }
     }
     public void sellItem(int inventoryId,double quantity){
 
