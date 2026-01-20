@@ -27,12 +27,9 @@ public class ProductService {
         System.out.println("row deleted sucessfully");
         else System.out.println("row not deleted");
     }
-    public void updateProductNameById(int productId,String productName){
-        int i=productDAO.updateProductNameById(productId,productName);
-        System.out.println("Product id "+productId+" name changed to "+productName);
+    public void updateProductById(int productId,Product product){
+        int i=productDAO.updateProductById(productId,product);
+        System.out.println(product.getProductName()+"updated successfully " +i);
     }
-    public void updateProductPriceById(int productId, BigDecimal price){
-        int i=productDAO.updateProductPriceById(productId,price);
-        System.out.println("Product id "+productId+" Price updated to "+price);
-    }
+
 }

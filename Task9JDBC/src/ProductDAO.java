@@ -94,13 +94,16 @@ public class ProductDAO {
         return i;
     }
 
-    public int updateProductNameById(int productId,String productName) {
-        String sql="UPDATE products SET product_name=? WHERE product_id=?";
+    public int updateProductById(int productId,Product product) {
+        String sql="UPDATE products SET product_name=?,price=?,tax=?,modified_on=? WHERE product_id=?";
         int i=0;
         try(Connection conn=getConnection();
             PreparedStatement ps=conn.prepareStatement(sql)) {
-            ps.setString(1,productName);
-            ps.setInt(2, productId);
+            ps.setString(1,product.getProductName());
+            ps.setBigDecimal(2,product.getPrice() );
+            ps.setDouble(3,product.getTax());
+            ps.setTimestamp(4,Timestamp.valueOf(LocalDateTime.now()));
+            ps.setInt(5,productId);
             i= ps.executeUpdate();
             System.out.println(i);
         }
@@ -109,32 +112,32 @@ public class ProductDAO {
         }
         return i;
     }
-    public int updateProductPriceById(int productId, BigDecimal price){
-        String sql="UPDATE products SET price=? WHERE product_id=?";
-        int i=0;
-        try(Connection conn=getConnection();
-            PreparedStatement ps=conn.prepareStatement(sql)) {
-            ps.setBigDecimal(1,price);
-            ps.setInt(2, productId);
-            i= ps.executeUpdate();
-            System.out.println(i);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return i;
-    }
-    public void modifyTimestamp(int productId){
-        String sql="UPDATE products SET modified_on=? WHERE product_id=?";
-        try(Connection conn=getConnection();
-            PreparedStatement ps=conn.prepareStatement(sql)) {
-            ps.setTimestamp(1,Timestamp.valueOf(LocalDateTime.now()));
-            ps.setInt(2, productId);
-            ps.executeUpdate();
-
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public int updateProductPriceById(int productId, BigDecimal price){
+//        String sql="UPDATE products SET price=? WHERE product_id=?";
+//        int i=0;
+//        try(Connection conn=getConnection();
+//            PreparedStatement ps=conn.prepareStatement(sql)) {
+//            ps.setBigDecimal(1,price);
+//            ps.setInt(2, productId);
+//            i= ps.executeUpdate();
+//            System.out.println(i);
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return i;
+//    }
+//    public void modifyTimestamp(int productId){
+//        String sql="UPDATE products SET modified_on=? WHERE product_id=?";
+//        try(Connection conn=getConnection();
+//            PreparedStatement ps=conn.prepareStatement(sql)) {
+//            ps.setTimestamp(1,Timestamp.valueOf(LocalDateTime.now()));
+//            ps.setInt(2, productId);
+//            ps.executeUpdate();
+//
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }
