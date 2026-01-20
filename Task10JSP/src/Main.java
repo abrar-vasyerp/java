@@ -10,6 +10,7 @@ public class Main {
         ProductService productService=new ProductService();
 //        productService.addItem(product);
 
+
 ////        productService.getProductById(1);
 //        productService.deleteProduct(1);
         productService.updateProductById(2,product);
